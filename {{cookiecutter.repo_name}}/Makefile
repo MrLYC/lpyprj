@@ -16,11 +16,13 @@ check-env:
 run: check-env
 	$(PYTHON) {{ cookiecutter.repo_name }}/main.py --env=$(ENVTYPE)
 
-requirement:
-	$(BOOTSTRAP) requirement .env
+init-dev:
+	$(BOOTSTRAP) init_dev "$(VENV)"
+	$(BOOTSTRAP) requirements "$(PIP)"
+	git init || true
 
-init: requirement
-	git init
+init:
+	$(BOOTSTRAP) requirements pip
 
 clean:
 	find . -name "__pycache__" -type d -exec rm -rf {} \; || true
@@ -32,8 +34,8 @@ full-clean:
 	find . -name "*.pyc" -type f -exec rm -rf {} \; || true
 
 check:
-	$(PEP8) $(PYTHONREPO)
-	$(PYLINT) -E $(PYTHONREPO)
+	$(PEP8) "$(PYTHONREPO)"
+	$(PYLINT) -E "$(PYTHONREPO)"
 
 test: check
-	$(PYTEST) $(PYTHONREPO)
+	$(PYTEST) "$(PYTHONREPO)"

@@ -3,6 +3,8 @@
 set -e
 
 VIRTUALENV=".temptools/virtualenv/virtualenv.py"
+REQUIREMENTSDEV="requirements-dev.txt"
+REQUIREMENTS="requirements.txt"
 if [ -e ~/.dev ]; then
     envtype="DEV"
 else
@@ -20,15 +22,18 @@ case "$action" in
         echo $envtype
         ;;
     requirements)
-        if [ "$envtype" = "DEV" ]; then
-            echo "requirements-dev.txt"
-        elif [ "$envtype" = "REAL" ]; then
-            echo "requirements.txt"
+        pip_install="$2"
+        if [ $envtype = "DEV" ]; then
+            $pip_install -r $REQUIREMENTSDEV
+        elif [ $envtype = "REAL" ]; then
+            $pip_install -r $REQUIREMENTS
         fi
         ;;
-    virtualenv)
-        if [ ! -e "$2" ]; then
-            python $VIRTUALENV "$2"
+    init_dev)
+        if [ "$envtype" = "DEV" ]; then
+            if [ ! -e "$2" ]; then
+                python $VIRTUALENV "$2"
+            fi
         fi
         ;;
 esac
