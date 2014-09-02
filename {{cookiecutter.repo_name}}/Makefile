@@ -29,9 +29,6 @@ lint:
 test:
 	py.test
 
-test-all:
-	tox
-
 coverage:
 	coverage run --source {{ cookiecutter.repo_name }} setup.py test
 	coverage report -m
