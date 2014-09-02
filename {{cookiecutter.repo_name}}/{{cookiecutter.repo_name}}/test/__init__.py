@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-__author__ = '{{ cookiecutter.full_name }}'
-__email__ = '{{ cookiecutter.email }}'
-__version__ = '{{ cookiecutter.version }}'
+__author__ = 'Liu Yicong'
+__email__ = 'saber000@vip.qq.com'
+__version__ = '0.1.0'
