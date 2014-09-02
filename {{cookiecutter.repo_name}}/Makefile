@@ -7,23 +7,17 @@ PYLINT = env PYTHONPATH=$(PYTHONPATH) $(VENV)bin/pylint --disable=I0011 --msg-te
 PEP8 = env PYTHONPATH=$(PYTHONPATH) $(VENV)bin/pep8 --repeat --ignore=E202,E501
 PYTHON = env PYTHONPATH=$(PYTHONPATH) $(VENV)bin/python
 PIP = $(VENV)bin/pip install -q -i http://pypi.douban.com/simple/
+BOOTSTRAP = $(TEMPTOOLS)bootstrap
 ENVTYPE = REAL
 
 check-env:
-	if [ -e ~/.dev ]; then
-		ENVTYPE = DEV
-	fi
+	ENVTYPE = `$(BOOTSTRAP)`
 
 run: check-env
 	$(PYTHON) {{ cookiecutter.repo_name }}/main.py --env=$(ENVTYPE)
 
-requirement: check-env
-	if [ $(ENVTYPE) = REAL ]; then
-		$(PIP) -r requirement.txt
-	elif [ $(ENVTYPE) = DEV ]; then
-		$(PIP) -r requirement-dev.txt
-		python $(TEMPTOOLS)virtualenv/virtualenv.py $(VENV)
-	fi
+requirement:
+	$(BOOTSTRAP) requirement .env
 
 init: requirement
 	git init

@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+
+VIRTUALENV=".temptools/virtualenv/virtualenv.py"
+if [ -e ~/.dev ]; then
+    envtype="DEV"
+else
+    envtype="REAL"
+fi
+
+if [ "$1" ]; then
+    action="$1"
+else
+    action="default"
+fi
+
+case "$action" in
+    default)
+        echo $envtype
+        ;;
+    requirements)
+        if [ "$envtype" = "DEV" ]; then
+            echo "requirements-dev.txt"
+        elif [ "$envtype" = "REAL" ]; then
+            echo "requirements.txt"
+        fi
+        ;;
+    virtualenv)
+        if [ ! -e "$2" ]; then
+            python $VIRTUALENV "$2"
+        fi
+        ;;
+esac
