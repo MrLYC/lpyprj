@@ -21,11 +21,25 @@ case "$action" in
     default)
         echo $envtype
         ;;
+    isdev)
+        if [ "$envtype" = "DEV" ]; then
+            exit 0
+        else
+            exit 1
+        fi
+        ;;
+    isreal)
+        if [ "$envtype" = "REAL" ]; then
+            exit 0
+        else
+            exit 1
+        fi
+        ;;
     requirements)
         pip_install="$2"
-        if [ $envtype = "DEV" ]; then
+        if [ "$envtype" = "DEV" ]; then
             $pip_install -r $REQUIREMENTSDEV
-        elif [ $envtype = "REAL" ]; then
+        elif [ "$envtype" = "REAL" ]; then
             $pip_install -r $REQUIREMENTS
         fi
         ;;

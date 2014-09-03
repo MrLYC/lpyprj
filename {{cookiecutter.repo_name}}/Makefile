@@ -10,11 +10,8 @@ PIP = $(VENV)bin/pip install -q -i http://pypi.douban.com/simple/
 BOOTSTRAP = $(TEMPTOOLS)bootstrap
 ENVTYPE = REAL
 
-check-env:
-	ENVTYPE = `$(BOOTSTRAP)`
-
 run: check-env
-	$(PYTHON) {{ cookiecutter.repo_name }}/main.py --env=$(ENVTYPE)
+	$(PYTHON) {{ cookiecutter.repo_name }}/main.py --env=`$(BOOTSTRAP)`
 
 init-dev:
 	$(BOOTSTRAP) init_dev "$(VENV)"
