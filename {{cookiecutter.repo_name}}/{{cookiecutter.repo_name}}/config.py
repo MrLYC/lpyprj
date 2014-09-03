@@ -11,3 +11,4 @@ from ConfigParser import ConfigParser
 CONF = ConfigParser()
 CONF.read("/etc/{{cookiecutter.project_name}}.ini")
 CONF.read("./{{cookiecutter.project_name}}.ini")
+
