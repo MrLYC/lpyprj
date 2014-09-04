@@ -36,3 +36,4 @@ check:
 
 test: check
 	$(PYTEST) "$(PYTHONREPO)"
+	make clean
