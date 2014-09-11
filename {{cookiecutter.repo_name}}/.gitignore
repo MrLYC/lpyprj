@@ -1,5 +1,5 @@
 # virtualenv
-.dev/.env/
+{{ cookiecutter.project_name }}-venv/
 
 # python
 *.py[cod]
