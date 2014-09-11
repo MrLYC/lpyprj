@@ -1,5 +1,5 @@
 DEVPATH ?= $(PWD)
-VIRTUALENV ?= $(DEVPATH)/.env
+VIRTUALENV ?= $(DEVPATH)/{{ cookiecutter.project_name }}-venv
 VENVPATH := $(VIRTUALENV)/bin
 
 # virtual env
@@ -12,16 +12,22 @@ PIPINSTALL := $(PYENV) $(VENVPATH)/pip install -i http://pypi.douban.com/simple/
 VIRTUAL_ENV := $(VIRTUALENV)
 endif
 
-.PHONY: dev-mk dev-venv dev-init
+.PHONY: dev-mk dev-venv dev-venv-relocate dev-requires dev-init
 
 dev-venv: dev-mk
-	[ -e "$(VIRTUAL_ENV)" ] || virtualenv "$(VIRTUALENV)"
+	[ -e "$(VIRTUAL_ENV)" ] || \
+	virtualenv "$(VIRTUALENV)" && \
+	cp $(VENVPATH)/activate $(DEVPATH)/activate && \
+	chmod 777 $(DEVPATH)/activate
 
-dev-requires: dev-venv
+dev-venv-relocate: dev-mk
+	chinese_segmenta $(VIRTUALENV)
+
+dev-requires: dev-mk dev-venv
 	$(PIPINSTALL) -r "$(DEVPATH)/requirements.txt"
 
-dev-clean: clean
-	rm -rf $(VIRTUALENV); || true
+dev-clean: dev-mk clean
+	rm -rf $(VIRTUALENV)\; || true
 
-dev-init: $(ROOTPATH)/.git dev-requires
+dev-init: dev-mk $(ROOTPATH)/.git dev-requires
 	cp $(DEVPATH)/git-hooks/* $(ROOTPATH)/.git/hooks
