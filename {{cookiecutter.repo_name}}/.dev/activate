@@ -8,5 +8,4 @@ else
     VENVPATH=$SELFPATH/.env/bin/activate
 fi
 
-source $VENVPATH
-echo "source $VENVPATH"
+source $VENVPATH && echo "source $VENVPATH"
