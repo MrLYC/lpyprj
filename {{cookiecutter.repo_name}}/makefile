@@ -36,3 +36,4 @@ pylint-full:
 
 test: pylint
 	$(PYTEST) $(SRCPATH)
+	make clean
