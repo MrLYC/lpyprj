@@ -19,13 +19,10 @@ dev-mk:
 	@echo "\033[33mmake from $(DEVMKFILE)\033[0m"
 
 clean:
-	@find . -name "__pycache__" -type d -exec rm -rf {} \; || true
-	@find . -name "*.pyc" -type f -exec rm -rf {} \; || true
-
-full-clean:
-	rm -rf local/ lib/ bin/ include/ build/ dist/ wheelhouse/ webshell.egg-info/ distribute-*.tar.gz
 	find . -name "__pycache__" -type d -exec rm -rf {} \; || true
 	find . -name "*.pyc" -type f -exec rm -rf {} \; || true
+
+full-clean: clean
 
 pylint:
 	$(PEP8) $(SRCPATH)

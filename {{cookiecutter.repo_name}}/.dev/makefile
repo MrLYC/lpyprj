@@ -12,11 +12,16 @@ PIPINSTALL := $(PYENV) $(VENVPATH)/pip install -i http://pypi.douban.com/simple/
 VIRTUAL_ENV := $(VIRTUALENV)
 endif
 
-.PHONY: dev-mk dev-venv
+.PHONY: dev-mk dev-venv dev-init
 
 dev-venv: dev-mk
 	[ -e "$(VIRTUAL_ENV)" ] || virtualenv "$(VIRTUALENV)"
-	ln -s "$(VENVPATH)/activate" "$(DEVPATH)/activate"
 
-dev-requirements: dev-venv
+dev-requires: dev-venv
 	$(PIPINSTALL) -r "$(DEVPATH)/requirements.txt"
+
+dev-clean: clean
+	rm -rf $(VIRTUALENV); || true
+
+dev-init: $(ROOTPATH)/.git dev-requires
+	cp $(DEVPATH)/git-hooks/* $(ROOTPATH)/.git/hooks
