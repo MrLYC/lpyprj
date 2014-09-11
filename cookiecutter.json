@@ -1,11 +1,7 @@
 {
 	"project_name": "LYCPrj",
 	"repo_name": "LYCRepo",
-	"project_short_description": "a project created by LYC",
-	"release_date": "2014-09-02",
-	"full_name": "Liu Yicong",
+	"author": "Liu Yicong",
 	"email": "saber000@vip.qq.com",
-	"github_username": "MrLYC",
-	"year": "2014",
-	"version": "0.1.0"
+	"project_short_description": "a project created by LYC"
 }
