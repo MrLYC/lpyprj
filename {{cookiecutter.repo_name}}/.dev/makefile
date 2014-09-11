@@ -15,7 +15,13 @@ endif
 .PHONY: dev-mk dev-venv dev-init
 
 dev-venv: dev-mk
-	[ -e "$(VIRTUAL_ENV)" ] || virtualenv "$(VIRTUALENV)"
+	[ -e "$(VIRTUAL_ENV)" ] || \
+	virtualenv "$(VIRTUALENV)" && \
+	cp $(VENVPATH)/activate $(DEVPATH)/activate && \
+	chmod 777 $(DEVPATH)/activate
+
+dev-venv-relocate:
+	chinese_segmenta $(VIRTUALENV)
 
 dev-requires: dev-venv
 	$(PIPINSTALL) -r "$(DEVPATH)/requirements.txt"
