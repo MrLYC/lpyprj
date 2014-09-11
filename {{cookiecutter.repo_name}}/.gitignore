@@ -1,0 +1,9 @@
+# virtualenv
+.dev/.env/
+
+# python
+*.py[cod]
+
+# temp
+*.bak
+*.tmp
