@@ -17,7 +17,7 @@ endif
 dev-path:
 	@echo "$(DEVPATH)"
 
-dev-venv-path: $(VIRTUAL_ENV):
+dev-venv-path: $(VIRTUAL_ENV)
 	@echo "$(VIRTUAL_ENV)"
 
 dev-venv: dev-mk
