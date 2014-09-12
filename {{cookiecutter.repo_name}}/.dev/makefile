@@ -12,7 +12,13 @@ PIPINSTALL := $(PYENV) $(VENVPATH)/pip install -i http://pypi.douban.com/simple/
 VIRTUAL_ENV := $(VIRTUALENV)
 endif
 
-.PHONY: dev-mk dev-venv dev-venv-relocate dev-requires dev-requires dev-init
+.PHONY: dev-mk dev-path dev-venv-path dev-venv dev-venv-relocate dev-requires dev-requires dev-init
+
+dev-path:
+	@echo "$(DEVPATH)"
+
+dev-venv-path: $(VIRTUAL_ENV):
+	@echo "$(VIRTUAL_ENV)"
 
 dev-venv: dev-mk
 	[ -e "$(VIRTUAL_ENV)" ] || \
