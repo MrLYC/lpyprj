@@ -19,8 +19,8 @@ dev-mk:
 	@echo "\033[33mmake from $(DEVMKFILE)\033[0m"
 
 clean:
-	@find . -name "__pycache__" -type d -exec rm -rf {} >/dev/null 2>&1 || true
-	@find . -name "*.pyc" -type f -exec rm -rf {} >/dev/null 2>&1 || true
+	@find . -name "__pycache__" -type d -exec rm -rf {} \; >/dev/null 2>&1 || true
+	@find . -name "*.pyc" -type f -exec rm -rf {} \; >/dev/null 2>&1 || true
 	@echo "\033[33mclean $(SRCPATH)\033[0m"
 
 full-clean: clean
