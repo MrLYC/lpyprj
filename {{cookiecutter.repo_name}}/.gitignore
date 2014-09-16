@@ -7,3 +7,8 @@
 # temp
 *.bak
 *.tmp
+
+# build
+build/
+dist/
+filmcomment.egg-info/
