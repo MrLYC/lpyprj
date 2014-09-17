@@ -12,6 +12,6 @@ if [ "$PYPRJROOT" ]; then
 else
     echo "anchor here"
     export PYPRJROOT=`pwd`
-    alias $PRJMAKE="make -C $PYPRJROOT"
+    alias $PRJMAKE="make -C $PYPRJROOT -s"
     . $SCRIPTDIR/activate
 fi
