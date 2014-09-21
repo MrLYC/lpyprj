@@ -26,3 +26,4 @@ for s in dir(Sections):
     section = getattr(Sections, s)
     if not CONF.has_section(section) and section != "default":
         CONF.add_section(section)
+

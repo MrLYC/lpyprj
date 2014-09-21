@@ -24,6 +24,7 @@ clean:
 	@echo "\033[33mclean $(SRCPATH)\033[0m"
 
 full-clean: clean
+	@git clean -f
 
 pylint:
 	$(PEP8) $(SRCPATH)
