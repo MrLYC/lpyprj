@@ -34,7 +34,7 @@ Then, initalize git:
 Make virtual environment to develop:
 `$ make dev-init`
 
-### 5. switch to the virtualenv of this project and start developing
+### 5. switch to the virtualenv of this project and start to develop
 Switch your Python environment and anchor here:
 `$ source .dev/toggle`
 
