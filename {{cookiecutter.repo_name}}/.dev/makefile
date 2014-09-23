@@ -26,9 +26,6 @@ dev-venv: dev-mk
 	cp $(VENVPATH)/activate $(DEVPATH)/activate && \
 	chmod 777 $(DEVPATH)/activate
 
-dev-venv-relocate: dev-mk
-	chinese_segmenta $(VIRTUALENV)
-
 dev-requires: dev-mk dev-venv requires $(DEVPATH)/requirements.txt
 	$(PIPINSTALL) -r "$(DEVPATH)/requirements.txt"
 
