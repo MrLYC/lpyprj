@@ -2,21 +2,21 @@
 The project template created by LYC
 
 ## Quick start
-### 1. clone project.
+### 1. clone the project.
 From github:
 `$ git clone https://github.com/MrLYC/lpyprj.git`
 
 Or from git@osc:
 `$ git clone https://git.oschina.net/Mr_LYC/lpyprj.git`
 
-### 2. cd to project and install requirements.
+### 2. install requirements.
 Change directory to project:
 `$ cd lpyprj`
 
-Install requirements as sudo:
+Install requirements with sudo:
 `$ sudo make requirements`
 
-Install requirements requires pip, if you didn't installed it yet, please use this command as sudo to install setuptools:
+Install requirements requires pip, if you didn't installed it yet, please use this command with sudo to install setuptools:
 `$ sudo make setuptools`
 
 ### 3. create your new project.
@@ -31,7 +31,7 @@ First, change the directory to your project.
 Then, initalize git:
 `$ git init`
 
-Make virtual environment to develop:
+Make virtual environment as your developing environment:
 `$ make dev-init`
 
 ### 5. switch to the virtualenv of this project and start to develop
