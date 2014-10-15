@@ -13,17 +13,17 @@ Or from git@osc:
 Change directory to project:
 `$ cd lpyprj`
 
+Install pip to install requirements, if you didn't installed it yet:
+`$ sudo make setuptools`
+
 Install requirements with sudo:
 `$ sudo make requirements`
-
-Install requirements requires pip, if you didn't installed it yet, please use this command with sudo to install setuptools:
-`$ sudo make setuptools`
 
 ### 3. create your new project.
 Use cookiecutter to create your new project:
 `$ cookiecutter $path_of_lpyprj`
 
-Replace the var $path_of_lpyprj to the real path of the project lpyprj is.
+Replace the var $path_of_lpyprj to the real path which the project lpyprj is.
 And then, input the infomations according to the hints to finish this step.
 
 ### 4. initalize your project.
