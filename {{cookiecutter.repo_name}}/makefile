@@ -23,9 +23,6 @@ clean:
 	@find . -name "*.pyc" -type f -exec rm -rf {} \; >/dev/null 2>&1 || true
 	@echo "\033[33mclean $(SRCPATH)\033[0m"
 
-full-clean: clean
-	@git clean -f
-
 pylint:
 	$(PEP8) $(SRCPATH)
 	$(PYLINT) -E $(SRCPATH)
