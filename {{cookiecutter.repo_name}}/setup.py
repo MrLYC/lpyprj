@@ -26,7 +26,7 @@ setup(
     name='{{ cookiecutter.project_name }}',
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.project_short_description }}',
-    long_description=open('README.rst').read(),
+    long_description=open('README.rst', 'a+').read(),
     author='{{ cookiecutter.author }}',
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
