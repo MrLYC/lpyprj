@@ -38,3 +38,7 @@ test: pylint
 
 requires: $(ROOTPATH)/requirements.txt
 	$(PIPINSTALL) -r $(ROOTPATH)/requirements.txt
+
+author-config:
+	git config user.email {{ cookiecutter.email }} --local
+	git config user.name {{ cookiecutter.author }} --local
