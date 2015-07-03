@@ -4,3 +4,7 @@ setuptools:
 
 requirements: requirements.txt
 	pip install -r requirements
+
+author-config:
+	git config user.email imyikong@gmail.com --local
+	git config user.name MrLYC --local
